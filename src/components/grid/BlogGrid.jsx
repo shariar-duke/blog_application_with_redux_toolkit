@@ -8,7 +8,6 @@ export default function BlogGrid() {
             <BlogGridItem className="col-span-1" />
             <BlogGridItem className="col-span-1" />
 
-
         </div>
     )
 }
