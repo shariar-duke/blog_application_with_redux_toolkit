@@ -26,10 +26,10 @@ const blogsSlice = createSlice({
         }).addCase(fetchBlogs.fulfilled, ( state, action ) => 
         {
             state.isLoading = false,
-            state.videos = action.payload
+          state.blogs = action.payload
         }).addCase(fetchBlogs.rejected, (state, action) => {
             state.isLoading = false
-            state.videos =[]
+          state.blogs =[]
             state.isError = true
             state.error = action.error?.message;
         })
