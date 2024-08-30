@@ -1,13 +1,17 @@
 import { FaRegThumbsUp } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 export default function BlogGridItem() {
     return (
         <div className="border border-gray-200 shadow-lg rounded-lg overflow-hidden cursor-pointer">
-            <div
-                className="min-h-[220px] bg-cover bg-center"
-                style={{ backgroundImage: "url(/git.webp)" }}
-            >
+            <Link to={`/blog/1`}>
+                <div
+                    className="min-h-[220px] bg-cover bg-center"
+                    style={{ backgroundImage: "url(/git.webp)" }}
+                >
 
-            </div>
+                </div>
+            </Link>
+
 
             <div className="p-[16px] flex flex-col gap-[10px]">
                 <div className="flex justify-between ">
@@ -18,9 +22,11 @@ export default function BlogGridItem() {
                     </div>
                 </div>
 
-                <p className="text-[22px] font-medium">
-                    Top Github Alternatives
-                </p>
+                <Link to={`/blog/1`}>
+                    <p className="text-[22px] font-medium">
+                        Top Github Alternatives
+                    </p>
+                </Link>
 
                 <div className="flex gap-[2px]">
                     <p>#python,</p>
