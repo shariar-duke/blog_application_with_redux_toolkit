@@ -3,10 +3,10 @@ import { FaRegThumbsUp } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 export default function BlogGridItem({ blog }) {
     console.log("The blog is", blog)
-    const { createdAt, image, likes, tags, title, isSaved } = blog
+    const { createdAt, image, likes, tags, title, isSaved, id } = blog
     return (
         <div className="border border-gray-200 shadow-lg rounded-lg overflow-hidden cursor-pointer">
-            <Link to={`/blog/1`}>
+            <Link to={`/blog/${id}`}>
                 <div
                     className="min-h-[220px] bg-cover bg-center"
                     style={{ backgroundImage: `url(${image})` }}
