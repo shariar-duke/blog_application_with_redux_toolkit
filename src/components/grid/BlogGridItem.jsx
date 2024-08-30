@@ -1,12 +1,15 @@
+/* eslint-disable react/prop-types */
 import { FaRegThumbsUp } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-export default function BlogGridItem() {
+export default function BlogGridItem({ blog }) {
+    console.log("The blog is", blog)
+    const { createdAt, image, likes, tags, title, isSaved } = blog
     return (
         <div className="border border-gray-200 shadow-lg rounded-lg overflow-hidden cursor-pointer">
             <Link to={`/blog/1`}>
                 <div
                     className="min-h-[220px] bg-cover bg-center"
-                    style={{ backgroundImage: "url(/git.webp)" }}
+                    style={{ backgroundImage: `url(${image})` }}
                 >
 
                 </div>
@@ -15,23 +18,28 @@ export default function BlogGridItem() {
 
             <div className="p-[16px] flex flex-col gap-[10px]">
                 <div className="flex justify-between ">
-                    <p className="text-gray-400">2023-05-01</p>
+                    <p className="text-gray-400">{createdAt}</p>
                     <div className="flex gap-[2px] justify-center items-center">
                         <FaRegThumbsUp size={18} />
-                        <p>100</p>
+                        <p>{likes}</p>
                     </div>
                 </div>
 
                 <Link to={`/blog/1`}>
                     <p className="text-[22px] font-medium">
-                        Top Github Alternatives
+                        {title}
                     </p>
                 </Link>
 
                 <div className="flex gap-[2px]">
-                    <p>#python,</p>
-                    <p>#tech,</p>
-                    <p>#git,</p>
+                    {tags && tags.map((tag, index) => {
+                        if (index + 1 !== tags.length) {
+                            return `#${tag}, `;
+                        } else {
+                            return `#${tag}`;
+                        }
+                    })}
+
                 </div>
 
                 <div>
