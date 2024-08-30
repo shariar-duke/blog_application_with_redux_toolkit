@@ -20,14 +20,14 @@ const blogsSlice = createSlice({
     name:"blogs", 
     initialState:initialState, 
     extraReducers:(builder)=>  {
-        builder.addCase(blogsSlice.pending , (state )=> 
+        builder.addCase(fetchBlogs.pending , (state )=> 
         { state.isError = false
           state.isLoading = true
-        }).addCase(blogsSlice.fulfilled, ( state, action ) => 
+        }).addCase(fetchBlogs.fulfilled, ( state, action ) => 
         {
             state.isLoading = false,
             state.videos = action.payload
-        }).addCase(blogsSlice.rejected, (state, action) => {
+        }).addCase(fetchBlogs.rejected, (state, action) => {
             state.isLoading = false
             state.videos =[]
             state.isError = true
