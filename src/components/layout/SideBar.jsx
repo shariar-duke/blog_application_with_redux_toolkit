@@ -4,6 +4,7 @@ export default function SideBar() {
         <div className="p-4 bg-white shadow-md rounded-md h-full">
             <label htmlFor="sort" className="text-lg font-semibold text-gray-700 block mb-1">Sort:</label>
             <select id="sort" className="w-full border border-gray-300 rounded-md px-3 py-2 bg-white text-gray-700 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 my-[10px]">
+                <option value="newest">Default</option>
                 <option value="newest">Newest</option>
                 <option value="mostLiked">Most Liked</option>
             </select>

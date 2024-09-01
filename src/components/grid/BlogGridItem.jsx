@@ -8,7 +8,7 @@ export default function BlogGridItem({ blog }) {
         <div className="border border-gray-200 shadow-lg rounded-lg overflow-hidden cursor-pointer">
             <Link to={`/blog/${id}`}>
                 <div
-                    className="min-h-[220px] bg-cover bg-center"
+                    className="md:min-h-[220px] lg:min-h-[270px] bg-cover bg-center"
                     style={{ backgroundImage: `url(${image})` }}
                 >
 
@@ -16,8 +16,8 @@ export default function BlogGridItem({ blog }) {
             </Link>
 
 
-            <div className="p-[16px] flex flex-col gap-[10px]">
-                <div className="flex justify-between ">
+            <div className="p-[16px] flex flex-col gap-[10px] h-full ">
+                <div className="flex justify-between  col-span-1">
                     <p className="text-gray-400">{createdAt}</p>
                     <div className="flex gap-[2px] justify-center items-center">
                         <FaRegThumbsUp size={18} />
@@ -25,30 +25,27 @@ export default function BlogGridItem({ blog }) {
                     </div>
                 </div>
 
-                <Link to={`/blog/1`}>
+                <Link to={`/blog/1`} className=" col-span-1">
                     <p className="text-[22px] font-medium">
                         {title}
                     </p>
                 </Link>
 
-                <div className="flex gap-[2px]">
+                <div className="flex gap-[2px]  col-span-1">
                     {tags && tags.map((tag, index) => {
-                        if (index + 1 !== tags.length) {
-                            return `#${tag}, `;
-                        } else {
-                            return `#${tag}`;
-                        }
+                        return (
+                            <span key={index}>
+                                {index + 1 !== tags.length ? `#${tag}, ` : `#${tag}`}
+                            </span>
+                        );
                     })}
-
                 </div>
 
-                <div>
-                    <button className="text-green-400 font medium px-[12px] py-[4px] rounded-full bg-green-100">
-                        Saved
+                <div className="  " >
+                    <button className={`${isSaved ? "text-green-400 bg-green-100" : "text-red-400 bg-red-100"} font-medium px-[12px] py-[4px] rounded-full`}>
+                        {isSaved ? "saved" : "unsaved"}
                     </button>
                 </div>
-
-
             </div>
         </div>
     )
