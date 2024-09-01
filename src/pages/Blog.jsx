@@ -24,7 +24,7 @@ export default function Blog() {
         dispatch(fetchBlog(blogId))
     }, [blogId, dispatch])
 
-    const { image } = blog
+    const { image, tags, id } = blog
     // decide what to render 
     let content = null;
 
@@ -50,7 +50,7 @@ export default function Blog() {
                     </div>
                 </div>
                 <div className="col-span-2">
-                    <RelatedBlogList />
+                    <RelatedBlogList tags={tags} id={id} />
                 </div>
             </div>)
 
