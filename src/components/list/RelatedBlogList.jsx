@@ -23,7 +23,10 @@ export default function RelatedBlogList({ tags, id }) {
     }
 
     if (!isError && !isLoading && relatedBlogs?.length == 0) {
-        content = <div className="col-span-12">No Blogs Found</div>;
+        content = <div className="col-span-12">
+            <p className="text-[20px] font-extrabold">No Blogs Found</p>
+
+        </div>;
     }
     if (!isError && !isLoading && relatedBlogs?.length > 0) {
         content = relatedBlogs.map((blog) => <RelatedBlogItem key={blog.id} blog={blog} />)
